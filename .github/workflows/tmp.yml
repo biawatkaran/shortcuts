@@ -1,0 +1,13 @@
+name: Morning job
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'    # temporary test, every 15 minutes UTC
+  workflow_dispatch:               # manual "Run workflow" button for testing
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Running at $(TZ=Australia/Sydney date)"
